@@ -2,7 +2,6 @@ package boj
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.util.*
 
 fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
     val n = readLine().toInt()
@@ -15,48 +14,43 @@ fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
         }
     }
     var end = false
-    val list = LinkedList<Int>()
+    val array = IntArray(n)
 
-    fun possible(): Boolean {
-        for (i in 0 until list.size) {
-            for (j in i until list.size) {
-                var sum = 0
-                for (k in i..j) {
-                    sum += list[k]
-                }
-
-                val exp = when (input[i][j]) {
-                    '-' -> sum < 0
-                    '+' -> sum > 0
-                    else -> sum == 0
-                }
-                if (!exp) {
-                    return false
-                }
+    fun possible(depth: Int): Boolean {
+        var sum = 0
+        for (i in depth downTo 0) {
+            sum += array[i]
+            when {
+                input[i][depth] == '-' && sum >= 0 -> return false
+                input[i][depth] == '+' && sum <= 0 -> return false
+                input[i][depth] == '0' && sum != 0 -> return false
             }
         }
         return true
     }
 
-    fun dfs() {
-        if (list.size == n) {
+    fun dfs(depth: Int) {
+        if (end) {
+            return
+        }
+
+        if (depth == n) {
             end = true
-            list.forEach {
+            array.forEach {
                 print("$it ")
             }
             println()
             return
         }
 
-        for (i in -10 .. 10) {
-            list.addLast(i)
-            if (!end && possible()) {
-                dfs()
+        for (i in -10..10) {
+            array[depth] = i
+            if (possible(depth)) {
+                dfs(depth + 1)
             }
-            list.pollLast()
         }
     }
 
-    dfs()
+    dfs(0)
     close()
 }
