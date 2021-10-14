@@ -8,7 +8,7 @@
 //import java.util.*
 //import kotlin.math.pow
 //
-//fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
+//fun boj.main() = with(BufferedReader(InputStreamReader(System.`in`))) {
 //    val bufferedWriter = BufferedWriter(OutputStreamWriter(System.out))
 //    val stringTokenizer = StringTokenizer(readLine())
 //    val n = stringTokenizer.nextToken().toInt()

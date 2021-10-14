@@ -1,6 +1,5 @@
 package boj;
 
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -81,4 +80,15 @@ public class boj_3190 {
             }
         }
     }
+
+    private static class Point {
+        final int x;
+        final int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
 }
+
