@@ -1,4 +1,4 @@
-package programmers.level1
+package programmers
 
 fun main() {
 

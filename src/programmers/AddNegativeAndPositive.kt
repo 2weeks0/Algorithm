@@ -1,4 +1,4 @@
-package programmers.level1
+package programmers
 
 fun main() {
     val answer = solution(intArrayOf(4,7,12), booleanArrayOf(true, false, true))

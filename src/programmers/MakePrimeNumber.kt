@@ -1,4 +1,4 @@
-package programmers.level1
+package programmers
 
 fun solution(nums: IntArray): Int {
     var answer = 0
