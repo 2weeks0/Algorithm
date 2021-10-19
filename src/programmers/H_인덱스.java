@@ -2,7 +2,7 @@ package programmers;
 
 import java.util.Arrays;
 
-public class HIndex {
+public class H_인덱스 {
     static class Solution {
         public int solution(int[] citations) {
             int answer = 0;

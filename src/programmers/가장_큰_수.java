@@ -1,6 +1,6 @@
 package programmers;
 
-class BiggestNumber {
+class 가장_큰_수 {
     public String solution(int[] numbers) {
         quickSort(numbers, 0, numbers.length - 1);
         StringBuilder stringBuilder = new StringBuilder();
