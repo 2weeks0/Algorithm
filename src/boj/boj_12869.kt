@@ -11,7 +11,7 @@ val attacks = arrayOf(
     arrayOf(3, 9, 1),
     arrayOf(3, 1, 9),
     arrayOf(1, 3, 9),
-    arrayOf(1, 9, 3),
+    arrayOf(1, 9, 3)
 )
 var n = 0
 lateinit var hps: IntArray
