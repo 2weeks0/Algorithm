@@ -10,8 +10,6 @@ var m = 0
 var k = 0
 lateinit var map: Array<IntArray>
 var answer = Int.MIN_VALUE
-val dx = arrayOf(1, -1, 0, 0)
-val dy = arrayOf(0, 0, 1, -1)
 
 fun main() {
     init()
@@ -56,6 +54,7 @@ fun backTracking(cx: Int, cy: Int, visited: Array<BooleanArray>, cnt: Int) {
     for (i in cx + cy * m + 1 until n * m) {
         val nx = i % m
         val ny = i / m
+
         if (canAdd(nx, ny, visited)) {
             visited[ny][nx] = true
             backTracking(nx, ny, visited, cnt + 1)
@@ -65,6 +64,9 @@ fun backTracking(cx: Int, cy: Int, visited: Array<BooleanArray>, cnt: Int) {
 }
 
 fun canAdd(x: Int, y: Int, visited: Array<BooleanArray>): Boolean {
+    val dx = arrayOf(1, -1, 0, 0)
+    val dy = arrayOf(0, 0, 1, -1)
+
     for (d in 0 until 4) {
         val nx = x + dx[d]
         val ny = y + dy[d]
