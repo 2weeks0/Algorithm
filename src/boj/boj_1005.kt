@@ -27,7 +27,7 @@ fun main() {
         var answer = 0
         for (i in 0 until n) {
             if (open[i]) {
-                answer = Math.max(costArray[i].max() ?: 0, answer)
+                answer = Math.max(costArray[i].maxOrNull() ?: 0, answer)
             }
         }
         bufferedWriter.append("$answer\n")
@@ -79,7 +79,7 @@ fun traverse(costArray: Array<LinkedList<Int>>, order: LinkedList<Int>) {
         val n = order.pollLast()
         var max = 0
         for (i in graph[n]) {
-            max = Math.max(max, costArray[i].max() ?: 0)
+            max = Math.max(max, costArray[i].maxOrNull() ?: 0)
         }
         costArray[n].addLast(costs[n] + max)
     }

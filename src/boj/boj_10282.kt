@@ -62,7 +62,7 @@ fun dijkstra(): IntArray {
 
 fun printAnswer(distances: IntArray, bufferedWriter: BufferedWriter) {
     with(distances.filter { it != Int.MAX_VALUE }) {
-        bufferedWriter.append("${count()} ${max()}\n")
+        bufferedWriter.append("${count()} ${maxOrNull()}\n")
     }
 }
 

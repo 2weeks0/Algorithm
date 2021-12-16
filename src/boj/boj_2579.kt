@@ -20,12 +20,12 @@ fun main() {
                 cache[i][1] = array[i - 1] + array[i]
             }
             else -> {
-                cache[i][0] = cache[i - 2].max()!! + array[i] // 최근에 한 계단 오른 적이 없음.
+                cache[i][0] = cache[i - 2].maxOrNull()!! + array[i] // 최근에 한 계단 오른 적이 없음.
                 cache[i][1] = cache[i - 1][0] + array[i]      // 최근에 한 계단 오른 적이 있음.
             }
         }
     }
-    println(cache[n - 1].max()!!)
+    println(cache[n - 1].maxOrNull()!!)
 }
 
 fun init() = with(BufferedReader(InputStreamReader(System.`in`))) {

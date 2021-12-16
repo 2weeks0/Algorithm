@@ -48,7 +48,7 @@ fun floydWarshall() {
 
 fun printAnswer() = with(BufferedWriter(OutputStreamWriter(System.out))) {
     val candidates = LinkedList<Int>()
-    val maxes = minDistances.map { it.max()!! }
+    val maxes = minDistances.map { it.maxOrNull()!! }
     var min = Int.MAX_VALUE
     maxes.forEachIndexed { index, i ->
         if (i < min) {

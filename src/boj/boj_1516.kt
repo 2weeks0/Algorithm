@@ -51,7 +51,7 @@ fun topologicalSorting() {
         val current = queue.pollFirst()
         for (next in graph[current]) {
             indegree[next]--
-            costTaken[next].addLast(costs[next] + (costTaken[current].max() ?: 0))
+            costTaken[next].addLast(costs[next] + (costTaken[current].maxOrNull() ?: 0))
             if (indegree[next] == 0) {
                 queue.addLast(next)
             }
@@ -61,7 +61,7 @@ fun topologicalSorting() {
 
 fun printAnswer() = with(BufferedWriter(OutputStreamWriter(System.out))) {
     for (i in 0 until n) {
-        append("${costTaken[i].max()!!}\n")
+        append("${costTaken[i].maxOrNull()!!}\n")
     }
     flush()
     close()

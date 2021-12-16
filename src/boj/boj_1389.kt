@@ -49,7 +49,7 @@ fun floydWarshall() {
 }
 
 fun printAnswer() {
-    val min = graph.map { it.sum() }.min()
+    val min = graph.map { it.sum() }.minOrNull()
     val answer = graph.indexOfFirst { it.sum() == min }
     println(answer + 1)
 }

@@ -14,7 +14,7 @@ lateinit var costTaken: IntArray
 fun main() {
     init()
     topologicalSort()
-    println(costTaken.max())
+    println(costTaken.maxOrNull())
 }
 
 fun init() = with(BufferedReader(InputStreamReader(System.`in`))) {

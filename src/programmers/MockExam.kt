@@ -26,7 +26,7 @@ fun solution(answers: IntArray): IntArray {
         }
 
     }
-    val maxAnswerCount = answerCount.max()
+    val maxAnswerCount = answerCount.maxOrNull()
     return answerCount
         .mapIndexed { index, i ->
             if (i == maxAnswerCount) {
