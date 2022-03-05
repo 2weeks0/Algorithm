@@ -2,6 +2,7 @@ package boj;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.*;
 
 public class boj_16637 {
     static int answer = Integer.MIN_VALUE;
@@ -11,13 +12,10 @@ public class boj_16637 {
         int n = Integer.parseInt(br.readLine());
         char[] arr = br.readLine().toCharArray();
 
-
         if (n == 1) {
             answer = arr[0] - '0';
-        } else if (n == 3) {
-            answer = operate(arr[0] - '0', arr[2] - '0', arr[1]);
         } else {
-            recursive(n, arr, 1, arr[0] - '0');
+            recursive(n, arr, 1, new boolean[n]);
         }
 
 
@@ -25,16 +23,33 @@ public class boj_16637 {
         br.close();
     }
 
-    static void recursive(int n, char[] arr, int idx, int value) {
-        if (idx == n) {
-            answer = Math.max(answer, value);
+    static void recursive(int n, char[] arr, int opIdx, boolean[] selected) {
+        if (n <= opIdx) {
+            Deque<Integer> deque = new ArrayDeque<>();
+            for (int i = 0; i < n; i += 2) {
+                 if (i != n - 1 && selected[i + 1]) {
+                    int num = operate(arr[i] - '0', arr[i + 2] - '0', arr[i + 1]);
+                    deque.add(num);
+                    i += 2;
+                } else {
+                    deque.add(arr[i] - '0');
+                }
+            }
+
+            int result = deque.pollFirst();
+            for (int i = 1; i < n; i += 2) {
+                if (!selected[i]) {
+                    result = operate(result, deque.pollFirst(), arr[i]);
+                }
+            }
+            answer = Math.max(answer, result);
             return;
         }
 
-        for (int i = idx; i < n; i += 2) {
-            int a = operate(value, arr[i + 1] - '0', arr[i]);
-            recursive(n, arr, i + 2, operate(value, arr[i + 1] - '0', arr[i]));
-        }
+        selected[opIdx] = true;
+        recursive(n, arr, opIdx + 4, selected);
+        selected[opIdx] = false;
+        recursive(n, arr, opIdx + 2, selected);
     }
 
     static int operate(int a, int b, char c) {
