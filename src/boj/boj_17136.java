@@ -40,7 +40,7 @@ public class boj_17136 {
             return;
         } else if (idx == SIZE_MAP * SIZE_MAP) {
             if (area == 0) {
-                answer = Math.min(answer, cnt);
+                answer = cnt;
             }
             return;
         }
