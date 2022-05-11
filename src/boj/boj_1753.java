@@ -49,8 +49,15 @@ public class boj_1753 {
         PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.comparingInt(i -> dist[i]));
         pq.add(s);
 
+        boolean[] visited = new boolean[v];
         while (!pq.isEmpty()) {
             int current = pq.poll();
+
+            if (visited[current]) {
+                continue;
+            }
+            visited[current] = true;
+
             for (Edge edge : graph[current]) {
                 if (dist[current] + edge.weight < dist[edge.to]) {
                     dist[edge.to] = dist[current] + edge.weight;
