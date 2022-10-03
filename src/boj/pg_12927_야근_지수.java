@@ -1,7 +1,10 @@
 package boj;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class pg_12927_야근_지수 {
-    import java.util.*;
 
     class Solution {
         public long solution(int n, int[] works) {

@@ -1,7 +1,8 @@
 package programmers;
 
+import java.util.*;
+
 public class pg_64065_튜플 {
-    import java.util.*;
 
     class Solution {
         public int[] solution(String s) {
